@@ -1,0 +1,32 @@
+// Плавная прокрутка для якорных ссылок
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Эффект при скролле для хедера
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.apple-header');
+    if (window.scrollY > 50) {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = '0 1px 10px rgba(0, 0, 0, 0.1)';
+    } else {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+        header.style.boxShadow = 'none';
+    }
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});

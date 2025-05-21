@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Документы для самозанятых | BusinessDoc</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        /* Уникальные стили для самозанятых */
+        body {
+            background-color: #f8f9fa;
+        }
+        .document-badge {
+            background-color: #e8f5e9;
+            color: #34a853;
+        }
+        .download-btn {
+            background-color: #34a853;
+        }
+        .download-btn:hover {
+            background-color: #2d8e47;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-4">
+        <a href="/anketa" class="d-flex align-items-center text-decoration-none mb-4">
+            <i class="bi bi-arrow-left me-2"></i> Вернуться к анкете
+        </a>
+        
+        <div class="document-container bg-white p-4 rounded shadow-sm">
+            <div class="document-header text-center mb-5">
+                <h2 class="mb-2">Документы для самозанятых</h2>
+                <p class="text-muted">Все необходимые документы для работы</p>
+            </div>
+            
+            <div class="document-card border p-3 rounded mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="document-badge px-2 py-1 rounded me-2">Рекомендуем</span>
+                            <h5 class="mb-0">Договор оказания услуг</h5>
+                        </div>
+                        <p class="text-muted mb-0">Универсальный договор с клиентами</p>
+                    </div>
+                    <a href="/static/documents/self-employed/akt vypolnennyh uslug.docx" class="download-btn btn text-white">
+                        <i class="bi bi-download me-1"></i> Скачать
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="document-card border p-3 rounded mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="document-badge px-2 py-1 rounded me-2">Рекомендуем</span>
+                            <h5 class="mb-0">Договор подряда</h5>
+                        </div>
+                        <p class="text-muted mb-0">Соглашение на выполнение работы заказчику с ее оплатой</p>
+                    </div>
+                    <a href="/static/documents/self-employed/dogovor podryda.docx" class="download-btn btn text-white">
+                        <i class="bi bi-download me-1"></i> Скачать
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Остальные документы для самозанятых -->
+        </div>
+
+        <div style="
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #272727;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+">
+    <div>
+        <div style="margin-top: 5px; font-size: 0.9em; color: #ffffff;;">
+            Нужна помощь? <br> Задайте вопрос нашему ИИ Ассистенту в Telegram</div>
+    </div>
+    <a href="https://t.me/busydock_bot" style="
+        margin-left: auto;
+        background: #0088cc;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 0.9em;
+    ">Перейти</a>
+</div>
+    </div>
+</body>
+</html>

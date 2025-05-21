@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета | BusinessDoc</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .question-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .progress-container {
+            height: 6px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: #0066cc;
+            transition: width 0.4s ease;
+        }
+        
+        .question {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .question.active {
+            display: block;
+        }
+        
+        .option-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .option-card:hover {
+            border-color: #0066cc;
+            background: #f5f9ff;
+        }
+        
+        .option-card.selected {
+            border-color: #0066cc;
+            background: #e6f0ff;
+        }
+        
+        .loading-container {
+            display: none;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .loading-bar {
+            width: 100%;
+            height: 4px;
+            background: #f0f0f0;
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+        
+        .loading-progress {
+            height: 100%;
+            background: #0066cc;
+            width: 0%;
+            animation: loading 2s ease-in-out forwards;
+        }
+        
+        .results-container {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .document-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes loading {
+            0% { width: 0%; }
+            20% { width: 25%; }
+            40% { width: 50%; }
+            60% { width: 75%; }
+            80% { width: 90%; }
+            100% { width: 100%; }
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <!-- Прогресс бар -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar" style="width: 20%"></div>
+        </div>
+        
+        <!-- Контейнер вопросов -->
+        <div class="question-container">
+            <!-- Вопрос 1 -->
+            <div class="question active" id="question1">
+                <h1 class="mb-4">1. Укажите тип бизнеса</h1>
+                <p class="text-muted mb-3">Укажите тип вашего бизнеса</p>
+
+                <div class="option-card" data-value="self-employed">
+                    <h5>Самозанятый</h5>
+                </div>
+                
+                <div class="option-card" data-value="ip">
+                    <h5>Индивидуальный предприниматель (ИП)</h5>
+                </div>
+                
+                <div class="option-card" data-value="ooo">
+                    <h5>Общество с ограниченной ответственностью (ООО)</h5>
+                </div>
+                
+                <button class="btn btn-primary mt-3" onclick="nextQuestion()">Далее</button>
+            </div>
+            
+            <!-- Вопрос 2 -->
+            <div class="question" id="question2">
+                <h1 class="mb-4">2. Вид деятельности</h1>
+                <p class="text-muted mb-3">Опишите чем занимается ваш бизнес</p>
+                
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="activityType" placeholder="Например: веб-дизайн">
+                    <label for="activityType">Например: Строительство / Торговля</label>
+                </div>
+                
+                <div class="d-flex justify-content-between mt-4">
+                    <button class="btn btn-outline-secondary" onclick="prevQuestion()">Назад</button>
+                    <button class="btn btn-primary" onclick="nextQuestion()">Далее</button>
+                </div>
+            </div>
+            
+            <!-- Вопрос 3 -->
+            <div class="question" id="question3">
+                <h1 class="mb-4">3. Планируются ли сотрудники?</h1>
+                
+                <div class="option-card" data-value="yes">
+                    <h5>Да</h5>
+                    <p class="text-muted">Буду нанимать сотрудников</p>
+                </div>
+                
+                <div class="option-card" data-value="no">
+                    <h5>Нет</h5>
+                    <p class="text-muted">Работаю один/с партнерами</p>
+                </div>
+                
+                <div class="d-flex justify-content-between mt-4">
+                    <button class="btn btn-outline-secondary" onclick="prevQuestion()">Назад</button>
+                    <button class="btn btn-primary" onclick="nextQuestion()">Далее</button>
+                </div>
+            </div>
+            
+            <!-- Вопрос 4 -->
+            <div class="question" id="question4">
+                <h1 class="mb-4">4. Какую систему налогообложения планируете?</h1>
+                
+                <div class="option-card" data-value="osn">
+                    <h5>ОСН (Общая система)</h5>
+                    <p class="text-muted">НДС, налог на прибыль</p>
+                </div>
+                
+                <div class="option-card" data-value="usn">
+                    <h5>УСН (Упрощенная система)</h5>
+                    <p class="text-muted">6% от доходов или 15% от прибыли</p>
+                </div>
+                
+                <div class="option-card" data-value="patent">
+                    <h5>Патент</h5>
+                    <p class="text-muted">Фиксированный платеж</p>
+                </div>
+                
+                <div class="option-card" data-value="dont-know">
+                    <h5>Не знаю</h5>
+                    <p class="text-muted">Нужна консультация</p>
+                </div>
+                
+                <div class="d-flex justify-content-between mt-4">
+                    <button class="btn btn-outline-secondary" onclick="prevQuestion()">Назад</button>
+                    <button class="btn btn-primary" onclick="nextQuestion()">Далее</button>
+                </div>
+            </div>
+            
+            <!-- Вопрос 5 -->
+            <div class="question" id="question5">
+                <h1 class="mb-4">5. Где планируете работать?</h1>
+                
+                <div class="option-card" data-value="online">
+                    <h5>Онлайн</h5>
+                    <p class="text-muted">Работаю через интернет</p>
+                </div>
+                
+                <div class="option-card" data-value="offline">
+                    <h5>Офлайн</h5>
+                    <p class="text-muted">Есть физическое помещение</p>
+                </div>
+                
+                <div class="option-card" data-value="both">
+                    <h5>Оба варианта</h5>
+                    <p class="text-muted">И онлайн, и офлайн</p>
+                </div>
+                
+                <div class="d-flex justify-content-between mt-4">
+                    <button class="btn btn-outline-secondary" onclick="prevQuestion()">Назад</button>
+                    <button class="btn btn-primary" onclick="submitForm()">Получить рекомендации</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Загрузка -->
+        <div class="question-container loading-container" id="loadingSection">
+            <h1 class="mb-3">Подбираем оптимальные решения</h1>
+            <p class="text-muted">Это займет всего несколько секунд</p>
+            
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Загрузка...</span>
+            </div>
+        </div>
+        
+        <!-- Результаты -->
+        <div class="question-container results-container" id="resultsSection">
+            <h3 class="mb-4">Всё готово — вот что мы подобрали</h3>
+            
+            <div class="document-card">
+                <div>
+                    <h5>Устав ООО</h5>
+                    <p class="text-muted mb-0">Шаблон устава для вашего бизнеса</p>
+                </div>
+                <a href="/static/docs/ooo/Ustav.docx=ustav.docx" class="btn btn-outline-primary">Скачать DOCX</a>
+            </div>
+            
+            <div class="document-card">
+                <div>
+                    <h5>Договор с клиентом</h5>
+                    <p class="text-muted mb-0">Универсальный договор оказания услуг</p>
+                </div>
+                <a href="/download?file=dogovor.docx" class="btn btn-outline-primary">Скачать DOCX</a>
+            </div>
+            
+            <div class="document-card">
+                <div>
+                    <h5>Заявление по форме Р11001</h5>
+                    <p class="text-muted mb-0">Для регистрации ООО</p>
+                </div>
+                <a href="/download?file=zayavlenie.docx" class="btn btn-outline-primary">Скачать DOCX</a>
+            </div>
+            
+            <div class="mt-4">
+                <button class="btn btn-primary" onclick="restartQuestionnaire()">Заполнить заново</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 5;
+        const answers = {};
+        
+        // Инициализация выбора вариантов
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Удаляем выделение у всех вариантов в этом вопросе
+                this.parentElement.querySelectorAll('.option-card').forEach(c => {
+                    c.classList.remove('selected');
+                });
+                
+                // Добавляем выделение текущему
+                this.classList.add('selected');
+                
+                // Сохраняем ответ
+                const questionId = this.closest('.question').id.replace('question', '');
+                answers[questionId] = this.getAttribute('data-value');
+            });
+        });
+        
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                // Проверяем, выбран ли ответ (кроме вопроса 2)
+                if (currentQuestion !== 2 && !answers[currentQuestion]) {
+                    alert('Пожалуйста, выберите вариант ответа');
+                    return;
+                }
+                
+                // Для вопроса 2 проверяем заполнение текстового поля
+                if (currentQuestion === 2 && !document.getElementById('activityType').value.trim()) {
+                    alert('Пожалуйста, укажите вид деятельности');
+                    return;
+                }
+                
+                document.getElementById(`question${currentQuestion}`).classList.remove('active');
+                currentQuestion++;
+                document.getElementById(`question${currentQuestion}`).classList.add('active');
+                updateProgressBar();
+            }
+        }
+        
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                document.getElementById(`question${currentQuestion}`).classList.remove('active');
+                currentQuestion--;
+                document.getElementById(`question${currentQuestion}`).classList.add('active');
+                updateProgressBar();
+            }
+        }
+        
+        function updateProgressBar() {
+            const progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+        }
+        
+        function submitForm() {
+    // Сохраняем ответ на последний вопрос
+    if (!answers[5]) {
+        alert('Пожалуйста, выберите вариант ответа');
+        return;
+    }
+    
+    // Сохраняем вид деятельности
+    answers['activity'] = document.getElementById('activityType').value.trim();
+    
+    // Показываем загрузку
+    document.querySelector('.question-container').style.display = 'none';
+    document.getElementById('loadingSection').style.display = 'block';
+    
+    // Имитируем загрузку (в реальном приложении здесь будет AJAX-запрос)
+    setTimeout(() => {
+        // Определяем тип бизнеса из ответов
+        const businessType = answers[1]; // Ответ на первый вопрос
+        
+        // Перенаправляем на соответствующую страницу
+        switch(businessType) {
+            case 'self-employed':
+                window.location.href = '/employed-docs';
+                break;
+            case 'ip':
+                window.location.href = '/documents-ip';
+                break;
+            case 'ooo':
+                window.location.href = '/documents-ooo';
+                break;
+            default:
+                // Если что-то пошло не так, показываем общие результаты
+                document.getElementById('loadingSection').style.display = 'none';
+                document.getElementById('resultsSection').style.display = 'block';
+        }
+    }, 2500);
+}
+        
+        function restartQuestionnaire() {
+            // Сбрасываем анкету
+            currentQuestion = 1;
+            for (let i = 1; i <= totalQuestions; i++) {
+                document.getElementById(`question${i}`).classList.remove('active');
+            }
+            document.getElementById('question1').classList.add('active');
+            
+            // Очищаем ответы
+            Object.keys(answers).forEach(key => delete answers[key]);
+            document.getElementById('activityType').value = '';
+            
+            // Сбрасываем выделение
+            document.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Обновляем прогресс
+            updateProgressBar();
+            
+            // Показываем вопросы, скрываем результаты
+            document.querySelector('.question-container').style.display = 'block';
+            document.getElementById('resultsSection').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

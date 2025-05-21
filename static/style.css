@@ -1,0 +1,440 @@
+/* Apple-стиль: минимализм и типографика */
+:root {
+    --apple-black: #1d1d1f;
+    --apple-dark-gray: #333336;
+    --apple-gray: #86868b;
+    --apple-light-gray: #f5f5f7;
+    --apple-blue: #0066cc;
+    --apple-link: #06c;
+}
+
+/* Базовые стили */
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--apple-light-gray);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background-color: var(--apple-black);
+}
+
+.question1 {
+    color: #1D1D1F;
+}
+
+/* Типографика в стиле Apple */
+h1, h2, h3, h4 {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+h1 {
+    font-size: 1.5rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    color: #1D1D1F;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-style: var(--apple-black);
+    margin-bottom: 0.75rem;
+}
+
+h5 {
+    font-size: 18px;
+    font-style: var(--apple-black);
+    font-weight: normal;
+    margin-bottom: 0.75rem;
+    color: var(--apple-black)
+}
+
+h6 {
+    color: #ffffff;
+    font-size: large;
+}
+
+p {
+    color: var(--apple-gray);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+#advantages {
+    background-color: #1D1D1F;
+    max-width: 1200px;
+    margin: 8rem auto;
+    padding: 0 2rem;
+    text-align: center;
+    
+}
+
+#advantages h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 40px ;
+}
+
+#advantages p {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 40px;
+    font-style: var(--apple-light-gray);
+}
+
+#advantages h3 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: var(--apple-light-gray);
+}
+
+
+.container2 {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.column1 {
+    background-color: #0066cc;
+    display: center;
+    padding: 10px;
+    border-radius: 15px;
+    flex: 1;
+    min-width: 400px;
+    text-align: center;
+    box-shadow: #1d1d1f;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: #1d1d1f;
+}
+
+.column1:hover{
+    transform: translateY(-10x);
+    box-shadow: #f5f5f7;
+    color: var(--apple-black);
+} 
+
+#advantage {
+    background-color: #292929;
+}
+
+#advantage h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+
+.column{
+    background-color: #303030;
+    display: center;
+    padding: 20px;
+    border-radius: 15px;
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    box-shadow: #1d1d1f;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: #1d1d1f;
+}
+
+.column:hover{
+    transform: translateY(-10x);
+    box-shadow: #f5f5f7;
+    background-color: #ffffff;
+    color: var(--apple-black);
+} 
+
+/* Хедер */
+.apple-header {
+    background-color: rgba(255, 255, 255, 0.925);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    padding: 0 2rem;
+}
+
+.apple-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.apple-logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--apple-black);
+    text-decoration: none;
+}
+
+.apple-links a {
+    color: var(--apple-dark-gray);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.apple-links a:hover {
+    color: var(--apple-blue);
+}
+
+/* Кнопки */
+.apple-button {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background-color: var(--apple-blue);
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.apple-button.large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.apple-button:hover {
+    background-color: #004999;
+    transform: scale(1.03);
+}
+
+/* Герой-секция */
+.apple-hero {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.apple-hero-content {
+    flex: 1;
+    padding-right: 4rem;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.apple-hero-preview {
+    flex: 1;
+    position: static;
+}
+
+.document-preview {
+    width: 100%;
+    height: 500px;
+    background-color: var(--apple-light-gray);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Секции */
+.apple-section {
+    max-width: 1200px;
+    margin: 8rem auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.apple-section.dark {
+    background-color: var(--apple-black);
+    padding: 4rem 2rem;
+    border-radius: 20px;
+}
+
+.apple-section-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.apple-section-subtitle {
+    font-size: 1.2rem;
+    color: var(--apple-gray);
+    margin-bottom: 3rem;
+}
+
+/* Карточки */
+.apple-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+
+.apple-card {
+    background-color: var(--apple-white);
+    border-radius: 18px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.apple-card:hover {
+    transform: translateY(-10px);
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border: thin solid var(--apple-blue);
+  border-radius: 30px;
+    background-color: var(--apple-light-gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--apple-blue);
+}
+
+/* Ссылки */
+.apple-link {
+    color: var(--apple-blue);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.apple-link:hover {
+    text-decoration: underline;
+}
+
+/* Футер */
+.apple-footer {
+    background-color: var(--apple-black);
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.footer-column {
+    margin-bottom: 2rem;
+}
+
+.footer-column h4 {
+    font-size: 0.9rem;
+    color: var(--apple-black);
+    margin-bottom: 1rem;
+}
+
+.footer-column a {
+    display: block;
+    color: var(--apple-gray);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.footer-column a:hover {
+    color: var(--apple-blue);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding-top: 2rem;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    color: var(--apple-gray);
+    font-size: 0.8rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .apple-hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 80px;
+    }
+    
+    .apple-hero-content {
+        padding-right: 0;
+        margin-bottom: 3rem;
+    }
+    
+    h1 {
+        font-size: 2.rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .apple-nav {
+        padding: 0 1rem;
+    }
+    
+    .apple-links {
+        display: none; /* В реальном проекте заменить на мобильное меню */
+    }
+
+    html {
+  scroll-behavior: smooth;
+}
+
+.section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+}

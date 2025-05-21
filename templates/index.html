@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusinessDoc | Документы для бизнеса</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/sf-pro-display@4.0.3/index.min.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .animated-element {
+            opacity: 0;
+            transform: translate--
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Минималистичный хедер -->
+    <header class="apple-header">
+        <nav class="apple-nav">
+            <a href="#" class="apple-logo">BusinessDock</a>
+            <div class="apple-links">
+                <a href="#features">Как работает сервис</a>
+                <a href="#advantage">Для кого это</a>
+                <a href="#advantages">Преимущества</a>
+                <a href="#bot.html"> Чат-Бот</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Герой-секция -->
+    <section class="apple-hero">
+        <div class="apple-center-content">
+            <h2>Онлайн-сервис для Самозанятых, ИП и ООО. <br> Генерация документов, подсказки по регистрации <br> и правовые советы — в одном окне.</h2>
+            <p class="hero-subtitle">Создайте свой бизнес — просто и без юристов</p>
+            <a href="{{url_for('anketa')}}" class="apple-button large">Начать сейчас</a>
+        </div>
+    </section>
+
+    <!-- Как работает сервис -->
+    <section id="features" class="apple-section">
+        <h2 class="apple-section-title">Как работает сервис</h2>  
+        <div class="apple-grid">
+            <div class="apple-card">
+                <div class="icon-circle">1</div>
+                <h3>Ответьте на пять <br> вопросов</h3>
+                <p>Уточним форму бизнеса, налоговую систему и цели.</p>
+            </div>
+            <div class="apple-card">
+                <div class="icon-circle">2</div>
+                <h3>Получите нужные документы</h3>
+                <p>Шаблоны в Word или PDF, <br> готовые к подаче.</p>
+            </div>
+            <div class="apple-card">
+                <div class="icon-circle">3</div>
+                <h3>Следуйте пошаговым рекомендациям</h3>
+                <p>От регистрации до первых клиентов</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Для кого это -->
+     <selection id="advantage"> <h2>Для кого это</h2>
+     <div class="container">
+        <div class="column"><h3>Самозанятым</h3>
+        <p>Договоры акты справки</p></div>
+     
+        <div class="column"><h3>ИП</h3>
+        <p>УСН, заявления, чек-листы</p></div>
+        
+        <div class="column"><h3>ООО</h3>
+        <p>Устав, решения, протоколы</p></div>
+    </div>
+</selection>
+
+    <!-- Преимущества -->
+    <section id="advantages"> <h2>Преимущества</h2> <p> почему выбирают нас:</p> </div>
+        <div class="container 2"
+        <div class="column1">
+            <div class="column1">
+                <h3>Готовые шаблоны документов</h3>
+            </div>
+            <div class="column1">
+                <h3>Лёгкая анкета — вместо долгих форм</h3>
+            </div>
+            <div class="column1">
+                <h3>Быстрый экспорт в PDF и DOCX</h3>
+            </div>
+            <div class="column1">
+             <h3>Без регистрации и звонков</h3>
+        </div>
+    </section>
+
+    <!-- Секция CTA -->
+    <section class="apple-section">
+        <h2>Готовы начать?</h2>
+        <a href="{{url_for('anketa')}}" class="apple-button medium">Создать документ</a>
+    </section>
+
+    <!-- Футер -->
+    <footer class="apple-footer">
+        <div class="footer-content">
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 BusinessDock. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

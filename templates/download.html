@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Документы для ООО | BusinessDoc</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .document-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .document-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .document-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .document-card:hover {
+            border-color: #0066cc;
+            box-shadow: 0 5px 15px rgba(0,102,204,0.1);
+        }
+        .document-info {
+            flex: 1;
+        }
+        .document-title {
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 5px;
+        }
+        .document-description {
+            color: #86868b;
+            font-size: 0.9rem;
+        }
+        .download-btn {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        .download-btn:hover {
+            background-color: #004d99;
+            transform: translateY(-2px);
+        }
+        .document-badge {
+            background-color: #e6f0ff;
+            color: #0066cc;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-right: 10px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: #0066cc;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-4">
+        <a href="/anketa" class="back-link">
+            <i class="bi bi-arrow-left me-2"></i> Вернуться к анкете
+        </a>
+        
+        <div class="document-container">
+            <div class="document-header">
+                <h2>Документы для ООО</h2>
+                <p class="text-muted">Все необходимые документы для регистрации и работы вашего ООО</p>
+            </div>
+            
+            <!-- Основные документы -->
+            <div class="mb-4">
+                <h4 class="mb-3">Основные документы</h4>
+                
+                <div class="document-card">
+                    <div class="document-info">
+                        <div class="d-flex align-items-center">
+                            <span class="document-badge">Обязательно</span>
+                            <h5 class="document-title mb-0">Устав ООО</h5>
+                        </div>
+                        <p class="document-description">Учредительный документ вашей компании</p>
+                    </div>
+                    <a href="/download/ustav-ooo.docx" class="download-btn">
+                        <i class="bi bi-download me-2"></i> Скачать DOCX
+                    </a>
+                </div>
+                
+                <div class="document-card">
+                    <div class="document-info">
+                        <div class="d-flex align-items-center">
+                            <span class="document-badge">Обязательно</span>
+                            <h5 class="document-title mb-0">Решение/Протокол о создании</h5>
+                        </div>
+                        <p class="document-description">Документ о создании общества</p>
+                    </div>
+                    <a href="/download/protokol-sozdanie.docx" class="download-btn">
+                        <i class="bi bi-download me-2"></i> Скачать DOCX
+                    </a>
+                </div>
+                
+                <div class="document-card">
+                    <div class="document-info">
+                        <div class="d-flex align-items-center">
+                            <span class="document-badge">Обязательно</span>
+                            <h5 class="document-title mb-0">Заявление по форме Р11001</h5>
+                        </div>
+                        <p class="document-description">Для регистрации в налоговой</p>
+                    </div>
+                    <a href="/download/zayavlenie-r11001.docx" class="download-btn">
+                        <i class="bi bi-download me-2"></i> Скачать DOCX
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Дополнительные документы -->
+            <div class="mb-4">
+                <h4 class="mb-3">Дополнительные документы</h4>
+                
+                <div class="document-card">
+                    <div class="document-info">
+                        <h5 class="document-title">Договор учредителей</h5>
+                        <p class="document-description">Соглашение между участниками ООО</p>
+                    </div>
+                    <a href="/download/dogovor-uchrediteley.docx" class="download-btn">
+                        <i class="bi bi-download me-2"></i> Скачать DOCX
+                    </a>
+                </div>
+                
+                <div class="document-card">
+                    <div class="document-info">
+                        <h5 class="document-title">Приказ о назначении директора</h5>
+                        <p class="document-description">Если директор не является учредителем</p>
+                    </div>
+                    <a href="/download/prikaz-direktor.docx" class="download-btn">
+                        <i class="bi bi-download me-2"></i> Скачать DOCX
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Бухгалтерские документы -->
+            <div>
+                <h4 class="mb-3">Бухгалтерские документы</h4>
+                
+                <div class="document-card">
+                    <div class="document-info">
+                        <h5 class="document-title">Заявление о переходе на УСН</h5>
+                        <p class="document-description">Если выбрана упрощенная система налогообложения</p>
+                    </div>
+                    <a href="/download/zayavlenie-usn.docx" class="download-btn">
+                        <i class="bi bi-download me-2"></i> Скачать DOCX
+                    </a>
+                </div>
+                
+                <div class="document-card">
+                    <div class="document-info">
+                        <h5 class="document-title">Доверенность на ведение дел</h5>
+                        <p class="document-description">Для представителей компании</p>
+                    </div>
+                    <a href="/download/doverennost.docx" class="download-btn">
+                        <i class="bi bi-download me-2"></i> Скачать DOCX
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Добавляем анимацию при наведении на кнопки
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.querySelector('i').classList.add('bi-arrow-down');
+                this.querySelector('i').classList.remove('bi-download');
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.querySelector('i').classList.add('bi-download');
+                this.querySelector('i').classList.remove('bi-arrow-down');
+            });
+        });
+    </script>
+</body>
+</html>
